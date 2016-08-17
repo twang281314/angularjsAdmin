@@ -1,0 +1,33 @@
+<div class="os-headbar" ng-include="'os/headbar.html'"></div>
+<div class="os-sidebar" ng-include="'os/sidebar.html'"></div>
+<div class="os-chatbar" ng-include="'os/chatbar.html'"></div>
+
+<div class="os-content">
+    <!-- app-tab-overflow-->
+    <div class="app-tabbar ">
+        <ul class="app-tabs">
+            <li class="app-tab ng-animate-disabled" ng-repeat="app in appManager.apps" ng-class="{active
+: app.active, sticky: app.sticky}">
+                <a href="#{{ app.id }}">
+                    <b ng-click="appManager.close($event, $index)"></b><i class="app-icon {{ app.icon
+ }}" ng-class="{'fa-spin': app.loading }"></i><span>{{ app.title }}</span>
+                </a>
+            </li>
+        </ul>
+        <div class="btn btn-default app-tab-prev"><i class="fa fa-angle-left"></i></div>
+        <div class="btn btn-default app-tab-next"><i class="fa fa-angle-right"></i></div>
+    </div>
+
+    <div class="app-tab-panes">
+        <div class="app-tab-pane ng-animate-disabled" ng-repeat="app in appManager.apps" ng-include="app
+.templateUrl" ng-show="app.active"></div>
+    </div>
+    <!--<div style="position: fixed; bottom: 0;right: 0; z-index: 1001; width: 300px;">-->
+        <!--<uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+{{alert.msg.content}}</uib-alert>-->
+    <!--</div>-->
+
+
+
+    <!--<div ng-include="'os/now-alarm.html'"></div>-->
+</div>

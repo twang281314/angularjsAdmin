@@ -1,0 +1,47 @@
+<style type="text/css">
+    .maps-tree {
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 180px;
+        overflow: auto;
+        padding: 2px;
+        border-left: 1px solid #ddd;
+    }
+
+    .maps-container {
+        position: absolute;
+        left: 4px;
+        top: 0;
+        right: 180px;
+        bottom: 0;
+    }
+    span[_cid="1"] {
+        display: none!important;
+    }
+
+    a[href="http://map.baidu.com/?sr=1"] {
+        display: none;
+    }
+</style>
+<div class="app-view" ng-controller="MapsController as map">
+    <uib-alert  ng-repeat="alert in alerts" type="danger" close="closeAlert($index)" dismiss-on-timeout="10000" style="position: fixed; top: 53px; right: 0px; z-index: 3; width: 300px;"><a href="#/alarms/list">{{alert.msg}}</a></uib-alert>
+    <div class="maps-tree">
+        <div class="input-group input-group-sm">
+            <input type="text" id="mapTreeQuery" class="form-control" placeholder="站点搜索">
+        </div>
+        <div id="mapTree"
+             js-tree="map.treeConfig"
+             should-apply="map.applyModelChanges()"
+             ng-model="map.treeData"
+             tree="map.treeInstance"
+             tree-events-obj="map.treeEvents"></div>
+    </div>
+
+    <div class="maps-container">
+        <div id="bMap" style="width:100%;height:100%">
+            {{ data.text }}
+        </div>
+    </div>
+</div>

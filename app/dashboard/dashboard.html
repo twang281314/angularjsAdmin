@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html ng-app="cw.os">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>淳安县农村环境工程智能化管理平台</title>
+<link rel="stylesheet" href="/lib/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/animate/animate.min.css">
+<link rel="stylesheet" href="/lib/angular-bootstrap-nav-tree/abn_tree.css">
+<link rel="stylesheet" href="/lib/jstree/3.2.1/themes/default/style.min.css">
+<link rel="stylesheet" href="/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css">
+
+<!-- 树-表格 组件 css -->
+<link rel="stylesheet" href="/lib/angular-tree-table/treeGrid.css">
+
+<link rel="stylesheet" href="os/os.css">
+<script src="/lib/pace/pace.min.js"></script>
+</head>
+<body ng-controller="OSController">
+<div id="os-loader" class="os-loader fade in"><span class="spinner">请稍候...</span></div>
+
+<div id="os-container" class="os-container fade" ng-include="'os/os.html'"></div>
+<script src="/lib/jquery/1.11.3/jquery.min.js"></script>
+<script src="/lib/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/lib/jquery-slimscroll/1.3.7/jquery.slimscroll.min.js"></script>
+
+<script src="/lib/angular/1.4.8/angular.min.js"></script>
+<script src="/lib/angular/1.4.8/angular-animate.min.js"></script>
+<script src="/lib/angular/1.4.8/angular-route.min.js"></script>
+<script src="/lib/angular/1.4.8/i18n/angular-locale_zh-cn.js"></script>
+
+
+<script src="/lib/angular-ui-bootstrap/1.2.4/ui-bootstrap-tpls.min.js"></script>
+<script src="/lib/ocLazyLoad/1.0.9/ocLazyLoad.min.js"></script>
+
+<script src="/lib/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+<script src="/lib/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"　 charset="UTF-8"
+></script>
+
+<script src="/lib/angular-bootstrap-nav-tree/abn_tree.js"></script>
+<script src="/lib/jstree/3.2.1/jstree.js"></script>
+<script src="/lib/ngJsTree/0.0.8/ngJsTree.js"></script>
+
+<!-- <script src="/lib/file-service/excelTemp.js"></script> -->
+
+
+<script src="os/apps.js"></script>
+<script src="os/os-util.js"></script>
+<script src="os/os.js"></script>
+<script src="os/os-app.js"></script>
+
+<script src="os/os-directive.js"></script>
+<script src="os/os-controller.js"></script>
+<script src="os/os-filter.js"></script>
+<script src="os/now-alarm.js"></script>
+<script src="dashboard/dashboard.js"></script>
+
+<!-- 树-表格 组件js -->
+<script type="text/javascript" src="/lib/angular-tree-table/tree-grid-directive.js"></script>
+
+<!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Eybmw77Gax1ETpgY0AAM569a"
+></script>-->
+<!--<script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min
+.js"></script>-->
+<script src="/lib/map/eybmw.js"></script>
+<script src="/lib/map/AreaRestriction_min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min
+.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min
+.js"></script>
+
+
+<!-- 图表 -->
+<script src="/lib/angular-charts/fusioncharts.js"></script>
+<script src="/lib/angular-charts/angular-fusioncharts.min.js"></script>
+<script type="text/javascript" src="/lib/angular-charts/fusioncharts.charts.js"></script>
+
+<script src="/res/player/swfobject.js"></script>
+<script src="/res/player/player.js"></script>
+</body>
+</html>
+

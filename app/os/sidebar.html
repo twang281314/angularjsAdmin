@@ -1,0 +1,156 @@
+<div id="sidebar" class="sidebar" ng-controller="SidebarController">
+    <a class="sidebar-minify-btn" href="javascript:;">
+        <i class="fa fa-navicon fa-rotate-90"></i>
+    </a>
+    <div class="sidebar-menu">
+        <ul class="nav" slimscroll="{height:'100%'}">
+            <li class="has-sub active">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b><i class="fa fa-home"></i><span>常用</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#/dashboard">仪表盘</a></li>
+                    <li><a href="#/maps">地图总览</a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b><i class="fa fa-bell"></i><span>告警中心</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#/alarms/list">告警列表</a></li>
+                    <li><a href="#/work/order">工单管理</a></li>
+
+                    <!---->
+                    <!--<li><a href="#/alarms/stat">告警汇总</a></li>-->
+                    <!---->
+                    <li><a href="#/alarms/alarmSetting">流量告警设置</a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b><i class="fa fa-list-ul"></i><span>运维考勤</span>
+                </a>
+                <ul class="sub-menu">
+                    <!---->
+                    <!--<li><a href="#/work/fanPump">风机水泵运行状态报表</a></li>-->
+                    <!---->
+                    <li><a href="#/work/check">站点考核</a></li>
+                    <li><a href="#/work/plan">巡维计划</a></li>
+
+                    <li><a href="#/work/checkin">巡维考勤</a></li>
+                    <!--<li><a href="#/work/count">巡维考勤统计</a></li>-->
+                    <li><a href="#/work/rule">考勤规则设置</a></li>
+                </ul>
+            </li>
+
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b><i class="fa fa-pie-chart"></i><span>污水处理中心</span
+>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#/reports/water/region/index">区域查询</a></li>
+                    <li><a href="#/reports/water/sitelist/index">污水站点</a></li>
+                    <!--<li><a href="#/reports/water/site/index">站点查询</a></li>-->
+                    <li><a href="#/reports/water/contrast/index">流量对比</a></li>
+
+
+
+                    <!--<li class="has-sub">-->
+                    <!--<a href="javascript:;">-->
+                    <!--<b class="caret pull-right"></b>污水处理-->
+                    <!--</a>-->
+                    <!--<ul class="sub-menu">-->
+                    <!--<li><a href="#/reports/water/contrast/index">流量对比</a></li>-->
+                    <!--&lt;!&ndash;<li class="has-sub">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a href="javascript:;">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<b class="caret pull-right"></b> 三级菜单&ndash;&gt;-->
+                    <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<ul class="sub-menu">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li><a href="javascript:;">Menu 3.1</a></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<li><a href="javascript:;">Menu 3.2</a></li>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</li>&ndash;&gt;-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+            </li>
+
+            <!--<li class="has-sub">-->
+            <!--<a href="javascript:;">-->
+            <!--<b class="caret pull-right"></b><i class="fa fa-list-ul"></i><span>河道水情监测</span>-->
+
+            <!--</a>-->
+            <!--<ul class="sub-menu">-->
+            <!--</ul>-->
+            <!--</li>-->
+
+            <!--<li class="has-sub">-->
+            <!--<a href="javascript:;">-->
+            <!--<b class="caret pull-right"></b><i class="fa fa-list-ul"></i><span>畜禽养殖监测</span>-->
+
+            <!--</a>-->
+            <!--<ul class="sub-menu">-->
+            <!--</ul>-->
+            <!--</li>-->
+
+            <li class="has-sub active">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b><i class="fa fa-cubes"></i><span>配置中心</span>
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#/config/dict">字典管理</a></li>
+                    <li><a href="#/config/region">区域管理</a></li>
+                    <li><a href="#/config
+/equipment">设备管理</a></li>
+                    <li class="has-sub">
+                        <a href="javascript:;">
+                            <b class="caret pull-right"></b><span>网关管理</span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li><a href="#/config/gateway">网关列表</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="#/config/site">站点管理</a></li>
+                </ul>
+            </li>
+            <li class="has-sub">
+                <a href="javascript:;">
+                    <b class="caret pull-right"></b><i class="fa fa-umbrella"></i><span>安全中心</span>
+
+                </a>
+                <ul class="sub-menu">
+                    <li><a href="#/security/acl/dept">部门管理</a></li>
+                    <li><a href="#/security
+/acl/role">角色管理</a></li>
+                    <li><a href="#/security/acl/user">用户管理</a
+></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!--<div class="alarm" ng-show="newAlarmIsShow">-->
+    <!--<span><a href="#" ng-click="close_msg()"><i class="fa fa-close"></i></a></span>-->
+    <!--<div id="l_c" style="height: 100px;width: 100%;">-->
+    <!--<ul id="a_l" style="list-style: none;">-->
+    <!--<li ng-repeat="item in nowAlarm"><a href="#">{{item.name}}"</a></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<script type="text/javascript">-->
+    <!--function autoScroll(obj){-->
+    <!--$(obj).find("#a_l").animate({-->
+    <!--marginTop : "-39px"-->
+    <!--},500,function(){-->
+    <!--$(this).css({marginTop : "0px"}).find("li:first").appendTo(this);-->
+    <!--})-->
+    <!--}-->
+    <!--$(function(){-->
+    <!--setInterval('autoScroll("#l_c")',3000);-->
+    <!--})-->
+    <!--</script>-->
+    <div class="sidebar-foot">技术支持-策望科技</div>
+</div>
