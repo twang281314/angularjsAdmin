@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "connect-modrewrite": "^0.9.0",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-sequence": "^0.4.5"
+  }
+}
