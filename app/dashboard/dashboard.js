@@ -225,137 +225,137 @@
             }
         };
 
-        var toGetData = function() {
-            // 饼图， 系统当日处理量
-            $http.get('/api/v1/dashboard/disposes').success(
-                function(response){
-                    vm.data = response.data;
-                    vm.waterSiteCount = 0;
-                    vm.garbageSiteCount = 0;
-                    vm.allWaterTotal = 0;
-                    vm.allGarbageTotal = 0;
-                    angular.forEach(vm.data.water, function (item, index) {
-                        vm.waterSiteCount += item.siteCount;
-                        vm.allWaterTotal += item.total;
-                        var personAvg = 0;
-                        if(item.population){
-                            personAvg=(item.total/item.population).toFixed(2);
-                        }
-                        vm.todayWaterTotal.push(
-                            {
-                                townName  : item.townName,
-                                todayTotal: item.total?item.total:0,
-                                personAvg : personAvg
-                            }
-                        );
+        // var toGetData = function() {
+        //     // 饼图， 系统当日处理量
+        //     $http.get('/api/v1/dashboard/disposes').success(
+        //         function(response){
+        //             vm.data = response.data;
+        //             vm.waterSiteCount = 0;
+        //             vm.garbageSiteCount = 0;
+        //             vm.allWaterTotal = 0;
+        //             vm.allGarbageTotal = 0;
+        //             angular.forEach(vm.data.water, function (item, index) {
+        //                 vm.waterSiteCount += item.siteCount;
+        //                 vm.allWaterTotal += item.total;
+        //                 var personAvg = 0;
+        //                 if(item.population){
+        //                     personAvg=(item.total/item.population).toFixed(2);
+        //                 }
+        //                 vm.todayWaterTotal.push(
+        //                     {
+        //                         townName  : item.townName,
+        //                         todayTotal: item.total?item.total:0,
+        //                         personAvg : personAvg
+        //                     }
+        //                 );
 
 
-                        vm.waterDate.dataSource.data.push(
-                            {
-                                label    : item.townName,
-                                value    : item.siteCount,
-                                toolText : '乡镇名：'+item.townName+'{br}'+
-                                '站点数：'+item.siteCount+'{br}'+
-                                '今日处理量：'+(item.total?item.total:0)+'M³{br}'+
-                                '户数：'+(item.household?item.household:0)+'{br}'+
-                                '人口数：'+(item.population?item.population:0)+'{br}'+
-                                '人均：'+personAvg+"M³"
-                            }
-                        );
-                    });
+        //                 vm.waterDate.dataSource.data.push(
+        //                     {
+        //                         label    : item.townName,
+        //                         value    : item.siteCount,
+        //                         toolText : '乡镇名：'+item.townName+'{br}'+
+        //                         '站点数：'+item.siteCount+'{br}'+
+        //                         '今日处理量：'+(item.total?item.total:0)+'M³{br}'+
+        //                         '户数：'+(item.household?item.household:0)+'{br}'+
+        //                         '人口数：'+(item.population?item.population:0)+'{br}'+
+        //                         '人均：'+personAvg+"M³"
+        //                     }
+        //                 );
+        //             });
 
 
-                    angular.forEach(vm.data.garbage, function (item, index) {
-                        vm.garbageSiteCount += item.siteCount;
-                        vm.allGarbageTotal += item.total;
-                        vm.todayGarbageTotal.push(
-                            {
-                                townName  : item.townName,
-                                todayTotal: item.total?item.total:0,
-                                personAvg : (item.total/item.population).toFixed(2)
-                            }
-                        );
-                        vm.garbageDate.dataSource.data.push(
-                            {
-                                label    : item.townName,
-                                value    : item.siteCount,
-                                toolText : '乡镇名：'+item.townName+'{br}'+
-                                '站点数：'+item.siteCount+'{br}'+
-                                '今日处理量：'+item.total+'Kg{br}'+
-                                '户数：'+item.household+'{br}'+
-                                '人口数：'+item.population+'{br}'+
-                                '人均：'+(item.total/item.population).toFixed(2)+'Kg/人'
-                            }
-                        );
-                    });
-                    vm.waterDate.dataSource.chart.caption += vm.waterSiteCount+"个";
-                    vm.garbageDate.dataSource.chart.caption += vm.garbageSiteCount+"个";
-                    vm.waterDate.dataSource.chart.subcaption += vm.allWaterTotal.toFixed(2)+"kg";
-                    vm.garbageDate.dataSource.chart.subcaption += vm.allGarbageTotal.toFixed(2)+"kg";
-                    var revenueChart = new FusionCharts(vm.waterDate);
-                    revenueChart.setTransparent(true);
-                    revenueChart.render("water");
-                    // var revenueChart = new FusionCharts(vm.garbageDate);
-                    // revenueChart.setTransparent(true);
-                    // revenueChart.render("garbage");
-                }
-            );
+        //             angular.forEach(vm.data.garbage, function (item, index) {
+        //                 vm.garbageSiteCount += item.siteCount;
+        //                 vm.allGarbageTotal += item.total;
+        //                 vm.todayGarbageTotal.push(
+        //                     {
+        //                         townName  : item.townName,
+        //                         todayTotal: item.total?item.total:0,
+        //                         personAvg : (item.total/item.population).toFixed(2)
+        //                     }
+        //                 );
+        //                 vm.garbageDate.dataSource.data.push(
+        //                     {
+        //                         label    : item.townName,
+        //                         value    : item.siteCount,
+        //                         toolText : '乡镇名：'+item.townName+'{br}'+
+        //                         '站点数：'+item.siteCount+'{br}'+
+        //                         '今日处理量：'+item.total+'Kg{br}'+
+        //                         '户数：'+item.household+'{br}'+
+        //                         '人口数：'+item.population+'{br}'+
+        //                         '人均：'+(item.total/item.population).toFixed(2)+'Kg/人'
+        //                     }
+        //                 );
+        //             });
+        //             vm.waterDate.dataSource.chart.caption += vm.waterSiteCount+"个";
+        //             vm.garbageDate.dataSource.chart.caption += vm.garbageSiteCount+"个";
+        //             vm.waterDate.dataSource.chart.subcaption += vm.allWaterTotal.toFixed(2)+"kg";
+        //             vm.garbageDate.dataSource.chart.subcaption += vm.allGarbageTotal.toFixed(2)+"kg";
+        //             var revenueChart = new FusionCharts(vm.waterDate);
+        //             revenueChart.setTransparent(true);
+        //             revenueChart.render("water");
+        //             // var revenueChart = new FusionCharts(vm.garbageDate);
+        //             // revenueChart.setTransparent(true);
+        //             // revenueChart.render("garbage");
+        //         }
+        //     );
 
-            // 站点健康度
-            // $http.get('/api/v1/dashboard/siteHealth').success(
-            //     function(response) {
-            //         angular.forEach(response.data, function(item) {
-            //             vm.siteHealth.dataSource.data.push(
-            //                 {
-            //                     "label": item.townName,
-            //                     "value": ((item.errorCount/item.totalSite)*100).toFixed(2)
-            //                 }
-            //             );
-            //         });
-            //         var revenueChart = new FusionCharts(vm.siteHealth);
-            //         revenueChart.setTransparent(true);
-            //         revenueChart.render("healthy");
-            //     }
-            // );
+        //     // 站点健康度
+        //     // $http.get('/api/v1/dashboard/siteHealth').success(
+        //     //     function(response) {
+        //     //         angular.forEach(response.data, function(item) {
+        //     //             vm.siteHealth.dataSource.data.push(
+        //     //                 {
+        //     //                     "label": item.townName,
+        //     //                     "value": ((item.errorCount/item.totalSite)*100).toFixed(2)
+        //     //                 }
+        //     //             );
+        //     //         });
+        //     //         var revenueChart = new FusionCharts(vm.siteHealth);
+        //     //         revenueChart.setTransparent(true);
+        //     //         revenueChart.render("healthy");
+        //     //     }
+        //     // );
 
-            // 告警统计
-            // $http.get('/api/v1/dashboard/infoCount').success(
-            //     function(response){
-            //         vm.data = response.data;
-            //
-            //         angular.forEach(vm.data.water, function (item, index) {
-            //             vm.alarmWater.dataSource.data.push(
-            //                 {
-            //                     label    : item.typeName,
-            //                     value    : item.alarmCount
-            //                 }
-            //             );
-            //         });
-            //
-            //         angular.forEach(vm.data.garbage, function (item, index) {
-            //             vm.alarmGarbage.dataSource.data.push(
-            //                 {
-            //                     label    : item.typeName,
-            //                     value    : item.alarmCount
-            //                 }
-            //             );
-            //         });
-            //
-            //         var revenueChart = new FusionCharts(vm.alarmGarbage);
-            //         revenueChart.setTransparent(true);
-            //         revenueChart.render("alarmGarbage");
-            //
-            //         var revenueChart = new FusionCharts(vm.alarmWater);
-            //         revenueChart.setTransparent(true);
-            //         revenueChart.render("alarmWater");
-            //     }
-            // );
-        };
+        //     // 告警统计
+        //     // $http.get('/api/v1/dashboard/infoCount').success(
+        //     //     function(response){
+        //     //         vm.data = response.data;
+        //     //
+        //     //         angular.forEach(vm.data.water, function (item, index) {
+        //     //             vm.alarmWater.dataSource.data.push(
+        //     //                 {
+        //     //                     label    : item.typeName,
+        //     //                     value    : item.alarmCount
+        //     //                 }
+        //     //             );
+        //     //         });
+        //     //
+        //     //         angular.forEach(vm.data.garbage, function (item, index) {
+        //     //             vm.alarmGarbage.dataSource.data.push(
+        //     //                 {
+        //     //                     label    : item.typeName,
+        //     //                     value    : item.alarmCount
+        //     //                 }
+        //     //             );
+        //     //         });
+        //     //
+        //     //         var revenueChart = new FusionCharts(vm.alarmGarbage);
+        //     //         revenueChart.setTransparent(true);
+        //     //         revenueChart.render("alarmGarbage");
+        //     //
+        //     //         var revenueChart = new FusionCharts(vm.alarmWater);
+        //     //         revenueChart.setTransparent(true);
+        //     //         revenueChart.render("alarmWater");
+        //     //     }
+        //     // );
+        // };
 
 
 
         vm.refresh = function () {
-            toGetData();
+          //toGetData();
         };
 
         vm.refresh();

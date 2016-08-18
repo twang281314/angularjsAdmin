@@ -33,13 +33,13 @@
             sticky: true
         });
 
-        apps.push({
-            id: '/maps',
-            title: '地图总览',
-            icon: 'fa fa-map-marker',
-            templateLazy: 'maps/maps.html',
-            sticky: false
-        });
+        // apps.push({
+        //     id: '/maps',
+        //     title: '地图总览',
+        //     icon: 'fa fa-map-marker',
+        //     templateLazy: 'maps/maps.html',
+        //     sticky: false
+        // });
 
         //apps.push({
         //    id: '/system',
