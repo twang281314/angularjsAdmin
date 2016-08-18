@@ -1,6 +1,7 @@
 window.APPS = [
     { name: 'app.dashboard',        url: '/dashboard',        icon: 'fa fa-dashboard',  title: '仪表盘', templateUrl: 'dashboard/dashboard.html' },
     { name: 'app.test1',        url: '/test1',        icon: 'fa fa-dashboard',  title: '测试1', templateUrl: 'test1/test1.html',resolve:{ deps: ['test1/test1.js']} },
+    { name: 'app.test2',        url: '/test2',        icon: 'fa fa-dashboard',  title: '测试2', templateUrl: 'test2/test2.html',resolve:{ deps: ['test2/test2.js']} },
     { name: 'app.maps',             url: '/maps',             icon: 'fa fa-map-marker', title: '地图总览',  templateUrl: 'maps/maps.html', resolve:{ deps: ['maps/maptonglu.js']} },
     { name: 'app.system',           url: '/system',           icon: 'fa fa-pagelines',  title: '系统管理', templateUrl: 'system/system-list.html' },
     { name: 'app.config.region',    url: '/config/region',    icon: 'fa fa-globe', title: '区域管理', templateUrl: 'config/region/region.html', resolve:{ deps: ['config/region/region.js']}},
