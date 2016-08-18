@@ -86,6 +86,7 @@
         });
 
         $rootScope.$on('$routeChangeSuccess', function(evt, current, previous) {
+         
             var id = $location.path();
             var app = findApp(id);
             if (!app) {

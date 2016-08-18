@@ -1,5 +1,4 @@
-
-(function(){
+(function() {
     var os = angular.module('cw.os', [
         'ngRoute',
         'ngAnimate',
@@ -10,9 +9,9 @@
         'ng-fusioncharts',
         'treeGrid'
     ]);
-    
-    
-    
+
+
+
     os.config(function($animateProvider) {
         $animateProvider.classNameFilter(/^(?:(?!ng-animate-disabled).)*$/);
     });
@@ -42,46 +41,49 @@
     //});
 
 
-    os.config([ '$httpProvider', function($httpProvider) {
+    os.config(['$httpProvider', function($httpProvider) {
         $httpProvider.interceptors.push('httpInterceptor');
-    } ]);
-    os.factory('httpInterceptor', [ '$q', '$injector',function($q, $injector) {
+    }]);
+    os.factory('httpInterceptor', ['$q', '$injector', function($q, $injector) {
 
         var httpInterceptor = {
-            'responseError' : function(response) {
+            'responseError': function(response) {
                 if (response.status == 401) {
-                      var rootScope = $injector.get('$rootScope');
-                      console.log(rootScope);
-                      var state = $injector.get('$rootScope').$state;
-                      console.log(state);
-                     // rootScope.stateBeforLogin = state;
-                     // rootScope.$state.go("/dashboard");
+                    var rootScope = $injector.get('$rootScope');
+                    console.log(rootScope);
+                    var state = $injector.get('$rootScope').$state;
+                    console.log(state);
+                    // rootScope.stateBeforLogin = state;
+                    // rootScope.$state.go("/dashboard");
                     alert("登入超时请登入！");
-                    window.location.href="/index/index";
+                    window.location.href = "/index/index";
                     return $q.reject(response);
                 } else if (response.status === 404) {
                     alert("页面出错了，请联系管理员！");
                     //window.location.href="/index/index";
                     return $q.reject(response);
-                }
-                else if (response.status === 403) {
+                } else if (response.status === 403) {
                     alert("您没有此权限！");
                     return $q.reject(response);
                 }
             },
-            'response' : function(response) {
+            'response': function(response) {
                 return response;
             }
         };
         return httpInterceptor;
-    }
-    ]);
+    }]);
 
 
-    os.config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+    os.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+
+        // $locationProvider.html5Mode({
+        //     enabled: false
+        // });
+
         $routeProvider.otherwise(APPS[0].url);
 
-        angular.forEach(APPS, function (app) {
+        angular.forEach(APPS, function(app) {
             var route = {
                 id: app.url,
                 icon: app.icon,
@@ -93,7 +95,10 @@
             if (route.resolve && route.resolve.deps) {
                 var deps = route.resolve.deps;
                 route.resolve.deps = ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load({ name: 'cw.os', files: deps }).then(function success(args) {
+                    return $ocLazyLoad.load({
+                        name: 'cw.os',
+                        files: deps
+                    }).then(function success(args) {
                         //console.debug(args);
                         return args;
                     }, function error(err) {
@@ -140,9 +145,9 @@
     }]);
 
 
-    os.controller('OSController', ['$scope', '$http', '$timeout', '$log', '$uibModal', function($scope, $http, $timeout, $log, $uibModal){
+    os.controller('OSController', ['$scope', '$http', '$timeout', '$log', '$uibModal', function($scope, $http, $timeout, $log, $uibModal) {
         //$log.debug(">>> OSController");
-        
+
 
         // $scope.alerts = [];
         //
@@ -180,7 +185,7 @@
         // }, 5000);
 
 
-       
+
     }]);
 
 })();
